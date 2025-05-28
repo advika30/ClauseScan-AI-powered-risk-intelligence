@@ -1,0 +1,14 @@
+streamlit
+pdfminer.six
+docx2txt
+nltk
+scikit-learn
+spacy
+pandas
+joblib
+transformers
+torch
+plotly
+Pillow
+pymongo
+python-dotenv
