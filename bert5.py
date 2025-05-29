@@ -194,13 +194,33 @@ body, .stApp {
 # Initialize spaCy and other NLP components
 @st.cache_resource
 def load_nlp_resources():
-    nlp = spacy.load("en_core_web_sm")
-    bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    bert_model = BertModel.from_pretrained('bert-base-uncased')
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    try:
+        # Try to load the model
+        nlp = spacy.load("en_core_web_sm")
+    except OSError:
+        # If model not found, download it
+        st.info("Downloading language model... This may take a moment.")
+        try:
+            spacy.cli.download("en_core_web_sm")
+            nlp = spacy.load("en_core_web_sm")
+        except Exception as e:
+            st.error(f"Could not download spaCy model: {e}")
+            # Fallback to a blank model
+            nlp = spacy.blank("en")
+            st.warning("Using basic English model. Some features may be limited.")
+    
+    try:
+        bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        bert_model = BertModel.from_pretrained('bert-base-uncased')
+        summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    except Exception as e:
+        st.error(f"Error loading transformer models: {e}")
+        # You might want to use lighter alternatives here
+        bert_tokenizer = None
+        bert_model = None
+        summarizer = None
+    
     return nlp, bert_tokenizer, bert_model, summarizer
-
-nlp, bert_tokenizer, bert_model, summarizer = load_nlp_resources()
 
 # Define common corporate clause types
 CLAUSE_TYPES = {
