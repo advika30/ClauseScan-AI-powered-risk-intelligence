@@ -21,7 +21,7 @@ from transformers import BertTokenizer, BertModel, pipeline
 import plotly.express as px
 import random
 import string
-
+import spacy.cli
 #new line
 
 import spacy
