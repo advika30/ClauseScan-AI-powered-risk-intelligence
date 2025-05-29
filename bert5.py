@@ -7,7 +7,6 @@ import tempfile
 import os
 import re
 import nltk
-import spacy
 import docx2txt
 import time
 import numpy as np
@@ -23,7 +22,19 @@ import plotly.express as px
 import random
 import string
 
+#new line
 
+import spacy
+import subprocess
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
+
+
+#end line
 
 
 # Download necessary NLTK data
