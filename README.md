@@ -1,4 +1,4 @@
-# ClauseScan – AI‑Powered Contract Risk Analyzer 📑
+# ClauseScan – AI‑Powered Contract Risk Intelligence 📑
 
 A **Streamlit‑based AI tool** that analyzes corporate contracts to classify clauses, assess their legal risk, and generate concise summaries. The project also ships with a **User Management Dashboard** that tracks credentials, flags reused passwords, and monitors login activity.
 
