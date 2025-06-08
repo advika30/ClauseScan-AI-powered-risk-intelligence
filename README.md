@@ -66,12 +66,6 @@ streamlit run bert5.py
 
 ---
 
-## 📸 Demo
-
-*Add screenshots here (Upload → Risk Summary → Clause Details → User Management tabs).*
-
----
-
 ## 🔮 Planned Improvements
 
 * Clause rewriting suggestions for high‑risk clauses
