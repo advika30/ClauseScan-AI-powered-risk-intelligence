@@ -1,93 +1,87 @@
-ClauseScan - AI powered contract risk analyzer 📑
-A Streamlit-based AI-powered tool that analyzes corporate contracts to classify clauses, assess legal risk levels, and provide summaries.
-Includes a built-in User Management Dashboard to monitor user credentials, detect reused passwords, and track login activity.
+# ClauseScan – AI‑Powered Contract Risk Analyzer 📑
 
-🔍 Key Features
-🔹 Contract Risk Analyzer
-📄 Upload Contracts: Supports .pdf, .docx, and .txt formats.
+A **Streamlit‑based AI tool** that analyzes corporate contracts to classify clauses, assess their legal risk, and generate concise summaries. The project also ships with a **User Management Dashboard** that tracks credentials, flags reused passwords, and monitors login activity.
 
-🧠 Clause Detection: Smart splitting of contracts into logical clauses using NLP.
+---
 
-🏷️ Clause Classification: Detects clause types like Indemnification, Termination, Payment Terms, etc.
+## 🔍 Key Features
 
-⚠️ Risk Rating: Each clause is rated as High, Medium, or Low risk using legal heuristics and BERT-based insights.
+### Contract Risk Analyzer
 
-✨ Summarization: Generates concise summaries for lengthy clauses using BART transformer.
+* **Upload contracts** (`.pdf`, `.docx`, `.txt`)
+* **Clause detection** – smart NLP‑driven segmentation
+* **Clause classification** – Indemnification, Termination, Payment Terms, etc.
+* **Risk rating** – High / Medium / Low via BERT‑powered heuristics
+* **Automatic summarization** – BART transformer
+* **Interactive dashboard** – bar & donut charts; export results to **JSON / CSV**
 
-📊 Interactive Dashboard: Visualizes risk breakdown with bar and donut charts, and exports results to JSON or CSV.
+### User Management Dashboard
 
-🔒 User Management Dashboard
-👤 Secure Authentication: Username, password (hashed), and CAPTCHA-based login/registration.
+* **Secure authentication** – username + hashed password + CAPTCHA
+* **Password analysis** – highlights reused credentials
+* **Login tracking** – total logins & last‑login timestamp
+* **Visual insights** – tabs for reuse frequency, user growth, login activity
 
-🧠 Password Analysis: Detects and highlights reused passwords across users.
+---
 
-🔁 Login Tracking: Shows total logins, last login time, and recent activity.
+## 🧠 Tech Stack
 
-📈 Visual Insights: Tabs for reused password frequency, user growth, and login activity trends.
+* **Frontend**: Streamlit (custom theming)
+* **NLP & ML**:
 
-🧠 Tech Stack
-Frontend: Streamlit (with custom theming and UI elements)
+  * BERT – sentence embeddings
+  * BART (`facebook/bart-large-cnn`) – summarization
+  * spaCy – NER & sentence segmentation
+  * Random Forest + TF‑IDF – extractive fallback
+* **Libraries**: Transformers, Torch, scikit‑learn, NLTK, pdfminer.six, docx2txt, pandas, plotly, pymongo
+* **Database**: MongoDB Atlas
 
-NLP & ML:
+---
 
-BERT — Sentence embeddings
+## 🚀 Setup
 
-BART — Summarization model (facebook/bart-large-cnn)
-
-spaCy — Named Entity Recognition & sentence segmentation
-
-Random Forest & TF-IDF — Extractive summarization fallback
-
-Libraries: Transformers, Torch, Scikit-learn, NLTK, pdfminer.six, docx2txt, pandas, plotly, pymongo
-
-Database: MongoDB (Atlas)
-
-🚀 Setup Instructions
-Clone the Repository
-
-bash
-Copy
-Edit
+```bash
+# 1. Clone
 git clone https://github.com/your-username/corporate-clause-risk-analyzer.git
 cd corporate-clause-risk-analyzer
-Install Required Packages
 
-bash
-Copy
-Edit
+# 2. Install dependencies
 pip install -r requirements.txt
-Download spaCy English Model
 
-bash
-Copy
-Edit
+# 3. Download spaCy model
 python -m spacy download en_core_web_sm
-Add Environment Variables
+```
 
-Create a .env file and add your MongoDB URI:
+Create a `.env` file and add your MongoDB URI:
 
-ini
-Copy
-Edit
-MONGO_URI=mongodb+srv://your_user:your_pass@cluster.mongodb.net
-Run the App
+```env
+MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net
+```
 
-bash
-Copy
-Edit
+Run the app:
+
+```bash
 streamlit run bert5.py
-📸 Demo Screenshots
-(Add screenshots here showing: Upload section, Risk Summary Dashboard, Clause View, User Management tabs.)
+```
 
-🔮 Planned Improvements
-📝 Clause rewriting suggestions for high-risk clauses.
+---
 
-📄 Clause-to-clause contract comparison.
+## 📸 Demo
 
-🌍 Multilingual support (Spanish, German, etc.).
+*Add screenshots here (Upload → Risk Summary → Clause Details → User Management tabs).*
 
-☁️ Deploy as SaaS with admin panel and access control.
+---
 
-📄 License
-© 2025 Advika Gupta. This project is licensed under the MIT License.
-You are free to use, modify, and distribute this work — provided proper credit is given and the license notice is retained.
+## 🔮 Planned Improvements
+
+* Clause rewriting suggestions for high‑risk clauses
+* Clause‑to‑clause contract comparison
+* Multilingual support (Spanish, German, …)
+* SaaS deployment with admin panel & fine‑grained access control
+
+---
+
+## 📄 License
+
+© 2025 **Advika Gupta** — released under the **MIT License**.
+You are free to use, modify, and distribute this work provided proper credit is given and this license notice is retained.
