@@ -1,74 +1,93 @@
-# Corporate-Clause-Risk-Analyzer
+ClauseScan - AI powered contract risk analyzer 📑
+A Streamlit-based AI-powered tool that analyzes corporate contracts to classify clauses, assess legal risk levels, and provide summaries.
+Includes a built-in User Management Dashboard to monitor user credentials, detect reused passwords, and track login activity.
 
-Corporate Clause Risk Analyzer 📑
-A Streamlit-based Natural Language Processing (NLP) application to analyze corporate contracts, classify clauses, and assess legal risk levels automatically.
-Powered by BERT embeddings, Transformer-based summarization, and customizable legal clause detection.
+🔍 Key Features
+🔹 Contract Risk Analyzer
+📄 Upload Contracts: Supports .pdf, .docx, and .txt formats.
 
-Features
-📄 Upload Contracts: Supports PDF, DOCX, and TXT formats.
+🧠 Clause Detection: Smart splitting of contracts into logical clauses using NLP.
 
-🔍 Clause Detection: Splits contracts into individual clauses intelligently.
+🏷️ Clause Classification: Detects clause types like Indemnification, Termination, Payment Terms, etc.
 
-🏷️ Clause Classification: Identifies clause types like Indemnification, Termination, Payment Terms, etc.
+⚠️ Risk Rating: Each clause is rated as High, Medium, or Low risk using legal heuristics and BERT-based insights.
 
-⚡ Risk Analysis: Rates clauses into High, Medium, or Low risk based on NLP-driven pattern detection.
+✨ Summarization: Generates concise summaries for lengthy clauses using BART transformer.
 
-✨ Automatic Summarization: Summarizes long legal clauses using Transformer models.
+📊 Interactive Dashboard: Visualizes risk breakdown with bar and donut charts, and exports results to JSON or CSV.
 
-📊 Visual Dashboard: Displays risk distribution and detailed clause reports in an intuitive UI.
+🔒 User Management Dashboard
+👤 Secure Authentication: Username, password (hashed), and CAPTCHA-based login/registration.
 
-Tech Stack 🛠️
-Frontend: Streamlit
+🧠 Password Analysis: Detects and highlights reused passwords across users.
 
-NLP Models:
+🔁 Login Tracking: Shows total logins, last login time, and recent activity.
 
-BERT (Sentence Embeddings)
+📈 Visual Insights: Tabs for reused password frequency, user growth, and login activity trends.
 
-Facebook BART Large CNN (Summarization)
+🧠 Tech Stack
+Frontend: Streamlit (with custom theming and UI elements)
 
-spaCy (Named Entity Recognition)
+NLP & ML:
 
-Machine Learning: Random Forest, TF-IDF
+BERT — Sentence embeddings
 
-Other Libraries: Scikit-learn, Pandas, Transformers, Torch, NLTK, pdfminer.six, docx2txt
+BART — Summarization model (facebook/bart-large-cnn)
 
-Setup Instructions 🚀
-Clone this repository:
+spaCy — Named Entity Recognition & sentence segmentation
+
+Random Forest & TF-IDF — Extractive summarization fallback
+
+Libraries: Transformers, Torch, Scikit-learn, NLTK, pdfminer.six, docx2txt, pandas, plotly, pymongo
+
+Database: MongoDB (Atlas)
+
+🚀 Setup Instructions
+Clone the Repository
 
 bash
 Copy
 Edit
 git clone https://github.com/your-username/corporate-clause-risk-analyzer.git
 cd corporate-clause-risk-analyzer
-Install the required packages:
+Install Required Packages
 
 bash
 Copy
 Edit
 pip install -r requirements.txt
-Download necessary spaCy model:
+Download spaCy English Model
 
 bash
 Copy
 Edit
 python -m spacy download en_core_web_sm
-Run the app:
+Add Environment Variables
+
+Create a .env file and add your MongoDB URI:
+
+ini
+Copy
+Edit
+MONGO_URI=mongodb+srv://your_user:your_pass@cluster.mongodb.net
+Run the App
 
 bash
 Copy
 Edit
-streamlit run bert2.py
-Demo Screenshots 📸
-(Add your screenshots here after hosting locally — e.g., Upload Section, Risk Summary, Clause Details)
+streamlit run bert5.py
+📸 Demo Screenshots
+(Add screenshots here showing: Upload section, Risk Summary Dashboard, Clause View, User Management tabs.)
 
-Future Improvements 🔥
-Add contract comparison feature (highlight differences clause-by-clause).
+🔮 Planned Improvements
+📝 Clause rewriting suggestions for high-risk clauses.
 
-Provide automated rewriting suggestions for high-risk clauses.
+📄 Clause-to-clause contract comparison.
 
-Enable multilingual contract support (Spanish, German, etc).
+🌍 Multilingual support (Spanish, German, etc.).
 
-Deploy SaaS version with user authentication.
+☁️ Deploy as SaaS with admin panel and access control.
 
-License 📄
-This project is open-sourced under the MIT License. Feel free to use and adapt!
+📄 License
+© 2025 Advika Gupta. This project is licensed under the MIT License.
+You are free to use, modify, and distribute this work — provided proper credit is given and the license notice is retained.
